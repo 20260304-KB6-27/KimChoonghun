@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+</head>
+<body>
+    <table border="1">
+        <!-- tr: table row 테이블 행 -->
+        <!--
+        colspan="2" : 2개의 열을 합침
+        rowspan="2" : 2개의 행을 합침
+        -->
+        <tr>
+            <!-- th: table header 테이블 헤더 -->
+            <th> 
+                제목1
+            </th>
+            <th> 
+                제목2
+            </th>
+        </tr>
+        <tr>
+            <!-- td: table data 테이블 데이터 -->
+            <td> 
+                1행 1열
+            </td>
+            <td> 
+                1행 2열
+            </td>
+        </tr>
+        <tr>
+            <!-- td: table data 테이블 데이터 -->
+            <td> 
+                2행 1열
+            </td>
+            <td> 
+                2행 2열
+            </td>
+        </tr>
+        <tr>
+            <!-- colspan = 열을 합친다! -->
+            <th colspan="2"> 
+                합친 제목
+            </th>
+        </tr>
+        <tr>
+            <!-- rowspan = 행을 합친다! -->
+            <td rowspan="2"> 
+                합친 행
+            </td>
+            <td>1행</td>
+        </tr>
+        <tr>
+            <td>2행</td>
+        </tr>
+    </table>
+</body>
+</html>
