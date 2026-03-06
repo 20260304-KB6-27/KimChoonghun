@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        CSS
+        - HTML 문서의 스타일을 정의하는 스타일 시트 언어
+        - 캐스케이딩, 상속, 재사용성
+
+        1. 외부 스타일 시트 (.css)
+        - 별도의 .css 파일을 생성해 HTML 문서와 연결
+
+        2. 내부 스타일 시트
+        - HTML 문서 내 <head> 안에 <style>을 사용하여 css 정의
+        
+        3. 인라인 스타일
+        - HTML 요소의 style 속성에 직접 스타일 적용
+        
+        선택자
+        - css에서 스타일을 적용할 HTML 요소를 선택하는 방법
+        태그 / id / class / 전체(*) / 속성
+
+        우선순위
+        1. !important
+        2. 인라인 스타일
+        3. 아이디 선택자
+        4. 클래스 선택자
+        5. 태그 선택자
+        6. 전체 선택자
+        7. 상속된 스타일
+        */
+        h1 {
+            color: red;
+            background-color: orange;
+        }
+        table {
+            border-spacing: 0px;
+            border: solid;
+            border-width: 2px;
+        }
+        th, td {
+            padding: 10px;
+            border: solid;
+            border-width: 1px;
+        }
+        td.code {
+            background-color: black;
+            font-family: 'Courier New', Courier, monospace;
+            border-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS 선택자 기본</h1>
+    <div style="display: flex;">
+        <table>
+            <tr>
+                <th colspan="4" style="font-size: 20px; color: darkblue; background-color: gainsboro;">CSS</th>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <p>
+                        - HTML 문서의 스타일을 정의하는 스타일 시트 언어<br>
+                        - 캐스케이딩, 상속, 재사용성
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="2">
+                    <strong>1. 외부 스타일 시트 (.css)</strong>
+                </td>
+                <td>
+                    <p>- 별도의 .css 파일을 생성해 HTML 문서와 연결</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="code">
+                    Style.css
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="2">
+                    <strong>2. 내부 스타일 시트</strong>
+                </td>
+                <td>
+                    <p>- HTML 문서 내 head 안에 style을 사용하여 css 정의</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="code">
+                    &lt;style&gt; &lt;&#47;style&gt;
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="2">
+                    <strong>3. 인라인 스타일</strong>
+                </td>
+                <td>
+                    <p>- HTML 요소의 style 속성에 직접 스타일 적용</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="code">
+                    &lt;div style="display: flex;"&gt; &lt;&#47;div&gt;
+                </td>
+            </tr>
+            <tr>
+                <th colspan="4">선택자</th>
+            </tr>
+            <tr>
+                <td colspan="4" style="text-align: center;">
+                    - css에서 스타일을 적용할 HTML 요소를 선택하는 방법
+                    <br>태그 / id / class / 전체(*) / 속성
+                </td>
+            </tr>
+        </table>
+        <table style="margin-left: 10px;">
+            <tr>
+                <th colspan="3" style="font-size: 20px; color: darkblue; background-color: gainsboro;">우선순위</th>
+            </tr>
+            <tr>
+                <th>1</th>
+                <td colspan="2">!important<br>-> 많이 쓰지 말것!</td>
+            </tr>
+            <tr>
+                <th>2</th>
+                <td colspan="2">인라인 스타일</td>
+            </tr>
+            <tr>
+                <th>3</th>
+                <td colspan="2">아이디 선택자</td>
+            </tr>
+            <tr>
+                <th>4</th>
+                <td colspan="2">클래스 선택자</td>
+            </tr>
+            <tr>
+                <th>5</th>
+                <td colspan="2">태그 선택자</td>
+            </tr>
+            <tr>
+                <th>6</th>
+                <td colspan="2">전체 선택자</td>
+            </tr>
+            <tr>
+                <th>7</th>
+                <td colspan="2">상속된 스타일</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

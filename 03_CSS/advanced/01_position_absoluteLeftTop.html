@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        nth-child : 가상 클래스 선택자
+        - 특정 순서의 자식 요소를 선택
+        */
+        .box {
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            border-radius: 20px;
+        }
+        .box:nth-child(1) {
+            background-color: red;
+            left: 0px;
+            top: 0px;
+            animation: spin 7s linear infinite;
+        }
+        .box:nth-child(2) {
+            background-color: yellow;
+            left: 50px;
+            top: 50px;
+            animation: spin 5s linear infinite;
+        }
+        .box:nth-child(3) {
+            background-color: yellowgreen;
+            left: 100px;
+            top: 100px;
+            animation: spin 3s linear infinite;
+        }
+
+        .box:hover {
+            width: 150px;
+            height: 150px;
+            transition: width 0.3s ease, height 0.3s ease;
+            cursor: pointer;
+        }
+
+        .parent {
+            width: 300px;
+            height: 100px;
+            /* background-color: aliceblue; */
+            border: solid;
+            background-color: aliceblue;
+            border-color: black;
+            position: relative;
+            overflow:visible;
+        }
+
+        h1:hover {
+            height: 100px;
+        }
+
+        button {
+            margin-top: 100px;
+            width: 300px;
+            border-radius: 5px;
+            background: rgb(213, 189, 128);
+            padding: 10px;
+        }
+
+        button:hover {
+            background: white;
+            cursor: pointer;
+        }
+        
+        @keyframes spin {
+            to {
+                rotate: 360deg;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!--
+        absolute의 경우
+        부모 요소들 중에 position이 지정이 되어있을 경우 해당 부모를 기준으로
+        top,right,bottom,left 속성을 사용하여 위치를 지정
+    -->
+    <h1>Absolute 테스트</h1>
+    <div class="parent">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <h1>lorem</h1>
+    <button id="overflow">
+        visible
+    </button>
+    <button id="onoff">
+        absolute
+    </button>
+</body>
+<script>
+    var ind = 0;
+    var ind2 = 0;
+    let status = ["absolute","relative","fixed","static"];
+    let status2 = ["visible","auto","scroll","hidden"];
+    const button = document.getElementById('onoff');
+    const button2 = document.getElementById('overflow');
+    const h1 = document.querySelector('h1');
+    const boxes = document.getElementsByClassName('box');
+    button.addEventListener('click', function(e) {
+        ind = (ind+1)%4;
+        button.innerText = status[ind];
+        h1.innerText = status[ind] + '/' + status2[ind2];
+        for (i=0;i<boxes.length;i++) {
+            boxes[i].style.position = status[ind];
+        }
+    })
+    button2.addEventListener('click', function(e) {
+        ind2 = (ind2+1)%4;
+        h1.innerText = status[ind] + '/' + status2[ind2];
+        button2.innerText = status2[ind2];
+        const parent = document.getElementsByClassName('parent');
+        parent[0].style.overflow = status2[ind2]
+    })
+</script>
+</html>

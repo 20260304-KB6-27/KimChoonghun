@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border: solid;
+            border-color: black;
+            border-spacing: 0px;
+        }
+
+        table th, table td {
+            padding: 3px;
+            border: solid;
+            border-color: black;
+            border-width: 1px;
+            border-spacing: 0px;
+        }
+        /** 후손 선택자 : A B라면 A 아래의 모든 B에 적용 **/
+        table#des th {
+            color: red;
+        }
+        /** 자손 선택자 : A > B라면 A 바로 아래의 B 태그만 스타일 적용 **/
+        table#child > tbody > tr > th {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div style="display: flex; justify-content: space-evenly;">
+        <table id="child">
+            <tr>
+                <th>이름</th>
+                <th>거주지</th>
+                <td rowspan="3">
+                    <p style="max-width: 200px;">
+                        A > B라면 A 바로 아래의<br>B 태그만 스타일 적용
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>김충훈</td>
+                <td>서울 서대문</td>
+            </tr>
+            <tr>
+                <th colspan="2">자손</th>
+            </tr>
+        </table>
+        <table id="des">
+            <tr>
+                <th>이름</th>
+                <th>거주지</th>
+                <td rowspan="3">
+                    <p style="max-width: 200px;">
+                        A B라면 A 아래의<br>모든 B에 적용
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>김충훈</td>
+                <td>서울 서대문</td>
+            </tr>
+            <tr>
+                <th colspan="2">후손</th>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

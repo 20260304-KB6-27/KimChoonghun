@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 1. 그라디언트 회전 각도를 담을 커스텀 변수 정의 */
+        @property --bg-angle {
+            syntax: '<angle>';
+            initial-value: 0deg;
+            inherits: false;
+        }
+
+        button#hovering {
+            position: absolute;
+            width: 200px;
+            height: 60px;
+            text-align: center;
+            color: black;
+            font-weight: 600;
+            border-radius: 5px;
+            
+            /* 2. 각도 부분에 고정된 숫자가 아닌 변수(--bg-angle)를 삽입 */
+            background: linear-gradient(var(--bg-angle), rgb(167, 230, 167), rgb(235, 235, 138));
+            
+            /* (보너스) 글씨 크기나 테두리가 변할 때 부드럽게 커지도록 transition 추가 */
+            transition: font-size 0.3s ease, border-width 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        button#hovering:hover {
+            /* 3. 요소 자체가 아닌, 그라디언트 각도 변수를 회전시키는 애니메이션 적용 */
+            animation: spin-bg 1s linear infinite; 
+            border-color: rgb(193, 193, 193);
+            border-width: 2px;
+            border-style: solid;
+            font-size: 1.1em;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* 4. 애니메이션: 0도에서 시작해 360도까지 변수의 값을 변경 */
+        @keyframes spin-bg {
+            to {
+                --bg-angle: 360deg;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button id="hovering">
+        빙글빙글
+    </button>
+</body>
+</html>
