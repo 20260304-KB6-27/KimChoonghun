@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        block
+        - 줄바꿈 발생
+        - 너비와 높이 설정이 가능
+        - 여백, 패딩 (margin/padding) 설정 가능 
+    -->
+    <div style="text-align: center;align-content: center;background-color: black;color:white;">첫 번째 div는 새로운 줄에서 시작됨</div>
+    <div style="text-align: center;align-content: center;background-color: black;color:white;">두 번째 div는 자동으로 줄바꿈됨</div>
+    <div style="width:200px;height:50px;text-align: center;align-content: center;background-color: black;color:white;">
+        너비와 높이가 지정된 div
+    </div>
+    <div style="display:block;border:solid;border-width:1px;padding:10px;">
+        <div style="width: stretch;background: rgb(161, 160, 160);margin-bottom:10px;">
+            헤더 영역
+        </div>
+        <div style="display: flex;">
+            <div style="width: 20%;background: rgb(197, 219, 153);">사이드바</div>
+            <div style="width: 80%;background: rgb(142, 224, 178);">본문영역</div>
+        </div>
+    </div>
+</body>
+</html>

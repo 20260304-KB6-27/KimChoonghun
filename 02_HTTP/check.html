@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>CHECK!</h1>
+    <h2 id="name">{name}</h2>
+    <h2 id="gender">{gender}</h2>
+    <h2 id="email">{email}</h2>
+</body>
+<script>
+    const urlParam = new URLSearchParams(location.search);
+    const name = urlParam.get('name');
+    const email = urlParam.get('email');
+    const gender = urlParam.get('gender');
+    document.getElementById("name").innerText = name;
+    document.getElementById("gender").innerText = gender == "m" ? "남자" : "여자";
+    document.getElementById('email').innerText = email;
+</script>
+</html>
