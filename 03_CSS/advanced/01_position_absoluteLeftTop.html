@@ -56,15 +56,14 @@
             height: 100px;
         }
 
-        button {
-            margin-top: 100px;
+        select {
             width: 300px;
             border-radius: 5px;
             background: rgb(213, 189, 128);
             padding: 10px;
         }
 
-        button:hover {
+        select:hover {
             background: white;
             cursor: pointer;
         }
@@ -74,27 +73,52 @@
                 rotate: 360deg;
             }
         }
+
+        table {
+            margin-left: 20px;
+            border: solid;
+            border-radius: 5px;
+        }
     </style>
 </head>
-<body>
+<body style="display:flex; align-items: center;">
     <!--
         absolute의 경우
         부모 요소들 중에 position이 지정이 되어있을 경우 해당 부모를 기준으로
         top,right,bottom,left 속성을 사용하여 위치를 지정
     -->
-    <h1>Absolute 테스트</h1>
-    <div class="parent">
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
+    <div>
+        <h1>absolute/visible</h1>
+        <div class="parent">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
     </div>
-    <h1>lorem</h1>
-    <button id="overflow">
-        visible
-    </button>
-    <button id="onoff">
-        absolute
-    </button>
+    <table>
+        <tr>
+            <th>position</th>
+            <td>
+                <select id="onoff">
+                    <option value="absolute">absolute</option>
+                    <option value="relative">relative</option>
+                    <option value="fixed">fixed</option>
+                    <option value="static">static</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>overflow</th>
+            <td>
+                <select id="overflow">
+                    <option value="visible">visible</option>
+                    <option value="auto">auto</option>
+                    <option value="scroll">scroll</option>
+                    <option value="hidden">hidden</option>
+                </select>
+            </td>
+        </tr>     
+    </table>
 </body>
 <script>
     var ind = 0;
@@ -104,21 +128,18 @@
     const button = document.getElementById('onoff');
     const button2 = document.getElementById('overflow');
     const h1 = document.querySelector('h1');
-    const boxes = document.getElementsByClassName('box');
-    button.addEventListener('click', function(e) {
-        ind = (ind+1)%4;
-        button.innerText = status[ind];
-        h1.innerText = status[ind] + '/' + status2[ind2];
+    button.addEventListener('change', function(e) {
+        const boxes = document.getElementsByClassName('box');
+        h1.innerText = button.value +'/' + button2.value;
         for (i=0;i<boxes.length;i++) {
-            boxes[i].style.position = status[ind];
+            boxes[i].style.position = e.target.value;
         }
     })
-    button2.addEventListener('click', function(e) {
-        ind2 = (ind2+1)%4;
-        h1.innerText = status[ind] + '/' + status2[ind2];
-        button2.innerText = status2[ind2];
+    button2.addEventListener('change', function(e) {
+        h1.innerText = button.value + '/' + button2.value;
         const parent = document.getElementsByClassName('parent');
-        parent[0].style.overflow = status2[ind2]
+        console.log(e.target.value);
+        parent[0].style.overflow = e.target.value;
     })
 </script>
 </html>
