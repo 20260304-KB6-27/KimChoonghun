@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: red;
+        }
+
+        #container {
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            width: 500px;
+            height: 250px;
+            background-color: orange;
+            position: absolute;
+            /* margin: auto; */
+            /*
+                길이 단위
+                px
+                cm
+                em
+                %(비율)
+                etc...
+            */
+            
+            /* left: 5%; top: 5%; right: 0; bottom: 0; */
+            /* 
+                transform : 현재 위치에서 요소를 이동 
+                translate의 %는 자기 자신 요소 크기의 %
+            */
+            left: 50%; top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>요소의 중앙에 배치</h1>
+    </div>
+</body>
+</html>

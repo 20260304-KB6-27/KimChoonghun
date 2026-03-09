@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 960px;
+            margin: 0 auto;
+            display: flex;
+            overflow: hidden;
+        }
+        li:nth-child(1) {
+            /* border-top-left-radius: 5px; */
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        li:nth-child(3) {
+            /* border-top-left-radius: 5px; */
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+        li {
+            list-style: none;
+            border: 2px solid grey;
+            margin-inline-start: 0;
+            text-align: center;
+            padding: 20px;
+        }
+        #menu {
+            width: 260px;
+            float: left;
+            margin-right: 20px;
+        }
+        #section {
+            width: 700px;
+            float: right;
+        }
+
+        @media screen and (max-width: 767px) {
+            body { 
+                width: auto; 
+                flex-direction: column;
+            }
+            #menu { 
+                width: stretch; 
+                display: flex;
+                float: none; 
+                margin-right: 0px;
+            }
+            ul {
+                display: flex;
+                width: stretch;
+                padding-inline-start: 0px;
+            }
+            ul > li:nth-child(1) {
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+                border-top-right-radius: 0px;
+                border-bottom-right-radius: 0px;
+            }
+            ul > li:nth-child(3) {
+                border-top-left-radius: 0px;
+                border-bottom-left-radius: 0px;
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+            }
+            li {
+                width: stretch;
+            }
+            #section { width: auto; float: none; }
+
+        }
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <ul>
+            <li>메뉴-A</li>
+            <li>메뉴-B</li>
+            <li>메뉴-C</li>
+        </ul>
+    </div>
+    <div id="section">
+        <h1>Lorem, ipsum dolor.</h1>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia ab dolorem nam optio quae dolorum debitis ratione suscipit eveniet libero consectetur aliquam tempore porro assumenda, laboriosam placeat quasi! Illum, eos?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia ab dolorem nam optio quae dolorum debitis ratione suscipit eveniet libero consectetur aliquam tempore porro assumenda, laboriosam placeat quasi! Illum, eos?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia ab dolorem nam optio quae dolorum debitis ratione suscipit eveniet libero consectetur aliquam tempore porro assumenda, laboriosam placeat quasi! Illum, eos?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia ab dolorem nam optio quae dolorum debitis ratione suscipit eveniet libero consectetur aliquam tempore porro assumenda, laboriosam placeat quasi! Illum, eos?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia ab dolorem nam optio quae dolorum debitis ratione suscipit eveniet libero consectetur aliquam tempore porro assumenda, laboriosam placeat quasi! Illum, eos?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia ab dolorem nam optio quae dolorum debitis ratione suscipit eveniet libero consectetur aliquam tempore porro assumenda, laboriosam placeat quasi! Illum, eos?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia ab dolorem nam optio quae dolorum debitis ratione suscipit eveniet libero consectetur aliquam tempore porro assumenda, laboriosam placeat quasi! Illum, eos?
+        </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 10px auto;
+            width: 500px;
+        }
+        #middle {
+            overflow: hidden;
+            display: flex;
+            /* flex-direct: 가로와 세로 방향*/
+            /* 
+                justify-content: 요소 정렬 방식 
+                center : 가운데 정렬
+                flex-end : 오른쪽 정렬
+                flex-start : 왼쪽 정렬
+                space-between : 항목들을 고르게 정렬합니다.
+                                첫 항목은 시작 부분에 밀착되어 정렬됩니다.
+                                마지막 항목은 끝 부분에 밀착되어 정렬됩니다.
+                space-evenly : 항목들을 고르게 정렬합니다.
+                                각 항목들은 서로 간에 동일한 여백을 갖습니다.
+                space-around : 항목들을 고르게 정렬합니다. 
+                                각 항목들은 양쪽 여백의 절반만큼 나누어 갖습니다.
+                stretch : 항목들을 고르게 정렬합니다.
+                        'auto' 크기로 설정된 항목들을 컨테이너에 맞게 늘립니다.
+            */
+            justify-content: space-between;
+        }
+        #left {
+            width: 100px; background: linear-gradient(90deg, red 0%, white 20%);;
+        }
+        #right {
+            width: 100px; background: linear-gradient(-90deg, blue 0%, white 10%);
+        }
+        #right:hover, #left:hover {
+            font-size: 20px;
+            transition: font-size 0.3s ease;
+        }
+        #right:hover {
+            background: linear-gradient(-90deg, blue 0%, white 40%);
+        }
+        #left:hover {
+            background: linear-gradient(90deg, red 0%, white 40%);
+        }
+        #top { background: linear-gradient(180deg, green 0%, white 100%);}
+        #bottom { background: linear-gradient(0deg, green 0%, white 100%);}
+    </style>
+</head>
+<body>
+    <div id="top">
+        Lorem ipsum dolor sit amet.
+    </div>
+    <div id="middle">
+        <div id="left">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque quasi totam repudiandae nulla dicta quidem fuga reprehenderit nostrum blanditiis in.</div>
+        <div id="right">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur perferendis maxime nostrum voluptates quae! Culpa, quaerat. Exercitationem modi, aut placeat, enim temporibus laudantium, officia sed qui saepe tempore quas voluptatibus?</div>
+    </div>
+    <div id="bottom">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+</body>
+</html>
