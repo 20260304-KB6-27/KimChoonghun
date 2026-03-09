@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 10px auto;
+            width: 500px;
+        }
+        #middle {
+            display: flex;
+        }
+        #left {
+            float: left; width: 250px; background: linear-gradient(90deg, red 0%, white 20%);;
+        }
+        #right {
+            float: right; width: 250px;  background: linear-gradient(-90deg, blue 0%, white 10%);
+        }
+        #right:hover {
+            font-size: 20px;
+            width: 350px;
+            background: linear-gradient(-90deg, blue 0%, white 10%);
+            transition: font-size 0.3s ease;
+        }
+        #left:hover {
+            font-size: 20px;
+            width: 350px;
+            background: linear-gradient(90deg, red 0%, white 40%);
+            transition:  font-size 0.3s ease;
+        }
+        #top { background: linear-gradient(180deg, green 0%, white 100%);}
+        #bottom { background: linear-gradient(0deg, green 0%, white 100%);}
+    </style>
+</head>
+<body>
+    <div id="top">
+        Lorem ipsum dolor sit amet.
+    </div>
+    <div id="middle">
+        <div id="left">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores perspiciatis voluptate, exercitationem dolorum tempora quo aliquid voluptatibus repellat deleniti quis unde! Dicta, odio voluptatem aperiam at doloribus obcaecati assumenda aliquid!</div>
+        <div id="right">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur perferendis maxime nostrum voluptates quae! Culpa, quaerat. Exercitationem modi, aut placeat, enim temporibus laudantium, officia sed qui saepe tempore quas voluptatibus?</div>
+    </div>
+    <div id="bottom">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+</body>
+</html>
