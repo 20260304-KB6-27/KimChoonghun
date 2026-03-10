@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let x = new Date();
+        x = x.getMonth() + 1;
+        let sea = '봄'
+        if (3 <= x && x < 6) {
+            sea = "봄"
+        } else if (6 <= x && x < 9) {
+            sea = "여름"
+        } else if (9 <= x && x < 12) {
+            sea = "가을"
+        } else {
+            sea = "겨울"
+        }
+        alert(sea + "입니다.");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
