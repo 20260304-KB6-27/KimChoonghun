@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--defer: 렌더링이 끝난 다음에 호출하겠다는 의미-->
+    <!-- <script src="app.js" defer></script>  -->
+    <script>
+        // window.onload
+        // 웹페이지의 모든 콘텐츠 (html, css, Image)가 로드된 이후에 실행되는 이벤트 핸들러
+        window.onload = function () {
+            const header = document.getElementById('header'); // 요소 선택
+            header.style.color = 'orange';
+            header.style.backgroundColor = 'red';
+
+            // InnerHTML : html 요소에 직접 접근
+            header.innerText = 'From JavaScript';
+            header.innerHTML = '<strong>From JavaScript</strong>';
+
+            // innerText: 내부 텍스트
+            const box = document.getElementById('box');
+            console.log(box.innerText);
+
+            // textContent
+            // 데이터만 처리할때는 주로 textContent만 사용
+            console.log(box.textContent);
+        };
+    </script>
+</head>
+<body>
+    <h1 id="header">Header</h1>
+    <div id="box"></div>
+</body>
+</html>

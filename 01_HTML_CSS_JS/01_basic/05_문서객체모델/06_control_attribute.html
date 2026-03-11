@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--defer: 렌더링이 끝난 다음에 호출하겠다는 의미-->
+    <!-- <script src="app.js" defer></script>  -->
+    <script>
+        // window.onload
+        // 웹페이지의 모든 콘텐츠 (html, css, Image)가 로드된 이후에 실행되는 이벤트 핸들러
+        window.onload = function () {
+            const img = document.querySelector('img');
+            img.setAttribute('src', "https://via.assets.so/img.jpg?w=300&h=200&bg=e5e7eb&f=png")
+        };
+    </script>
+</head>
+<body> <img id="image"> </body>
+</html>

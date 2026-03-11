@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--defer: 렌더링이 끝난 다음에 호출하겠다는 의미-->
+    <!-- <script src="app.js" defer></script>  -->
+    <script src="html.json" type="text/javascript"></script>
+    <script>
+        // window.onload
+        // 웹페이지의 모든 콘텐츠 (html, css, Image)가 로드된 이후에 실행되는 이벤트 핸들러
+        window.onload = async function () {
+            const template = await fetch('html.json');
+            const json = await template.json();
+            const data = json["Basic HTML Template"];
+            const container = document.querySelector('html');
+
+            const bodyInnerHTML = data.body.map((element) => element).join('').replace(/\$\{\d+\}/gi, 'document.querySelector("div").innerText = "' + data['description'] +'";');
+            // const
+            console.log(bodyInnerHTML);
+            container.innerHTML = bodyInnerHTML
+
+            const scripts = container.querySelectorAll('script');
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement('script');
+                
+                // 기존 스크립트의 속성(src, type 등) 복사
+                Array.from(oldScript.attributes).forEach(attr => {
+                    newScript.setAttribute(attr.name, attr.value);
+                });
+                
+                // 스크립트 내용 복사
+                newScript.textContent = oldScript.textContent;
+                
+                // 기존 비활성화된 스크립트 노드를 새 스크립트 노드로 교체하여 실행 트리거
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            });
+        };
+    </script>
+</head>
+<body>
+    <h1 id="header">Header</h1>
+</body>
+</html>
