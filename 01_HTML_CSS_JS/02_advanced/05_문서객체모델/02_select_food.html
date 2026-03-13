@@ -6,8 +6,9 @@
     <title>Document</title>
     <script>
         window.onload = function () {
-            document.getElementById('btn').onclick = function (event) {
-                const form = document.querySelectorAll('input[type="checkbox"]');
+            document.getElementById('btn').addEventListener('click', (event) => {
+                // const form = document.querySelectorAll('input[type="checkbox"]');
+                const form = document.getElementsByName('food');
                 const data = Array.from(form);
                 const selected = [];
                 // for (op of list) console.log(op.querySelector('form'));
@@ -15,7 +16,7 @@
                 
                 for (op of form) if (op.checked) selected.push(op.value);
                 console.log(selected.join(' '))
-            }
+            })
         }
     </script>
 </head>

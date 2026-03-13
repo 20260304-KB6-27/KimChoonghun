@@ -10,11 +10,12 @@
         // window.onload
         // 웹페이지의 모든 콘텐츠 (html, css, Image)가 로드된 이후에 실행되는 이벤트 핸들러
         window.onload = function () {
-            
+            document.getElementById('button').onclick = () => {alert('click')}
         };
     </script>
 </head>
 <body>
-    <button id="button" onclick="alert('click');">버튼</button>
+    <!-- <button id="button" onclick="alert('click');">버튼</button> -->
+    <button id="button">버튼</button>
 </body>
 </html>

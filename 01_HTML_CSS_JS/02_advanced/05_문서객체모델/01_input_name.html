@@ -6,10 +6,10 @@
     <title>Document</title>
     <script>
         window.onload = function () {
-            document.getElementById('btn').onclick = function (event) {
+            document.getElementById('btn').addEventListener('click', function(event) {
                 console.log(event.target.parentElement.name.value)
                 // console.log(document.getElementById('name').value)
-            }
+            })
         }
     </script>
 </head>

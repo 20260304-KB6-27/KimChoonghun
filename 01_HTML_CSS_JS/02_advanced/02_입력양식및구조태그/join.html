@@ -76,7 +76,7 @@
     </div>
 </body>
 <style>
-    input,select {
+    /* input,select {
         margin-left: 10px;
         padding: 4px;
         border-radius: 4px;
@@ -125,25 +125,25 @@
         text-align: center;
         font-size: 12px;
         color: rgb(227, 61, 61);
-    }
+    } */
 </style>
 <script>
-    const check_message = document.querySelector("td#check_message");
-    const pw = document.querySelector("#pw");
-    const pwcheck = document.querySelector('#pwcheck');
-    pw.addEventListener('change', function(e) {
-        if (pw.value != pwcheck.value) {
-            check_message.innerText = "비밀번호가 맞지 않습니다!";
-        } else {
-            check_message.innerText = "";
-        }
-    })
-    pwcheck.addEventListener('change', function(e) {
-        if (pw.value != pwcheck.value) {
-            check_message.innerText = "비밀번호가 맞지 않습니다!";
-        } else {
-            check_message.innerText = "";
-        }
-    })
+    // const check_message = document.querySelector("td#check_message");
+    // const pw = document.querySelector("#pw");
+    // const pwcheck = document.querySelector('#pwcheck');
+    // pw.addEventListener('change', function(e) {
+    //     if (pw.value != pwcheck.value) {
+    //         check_message.innerText = "비밀번호가 맞지 않습니다!";
+    //     } else {
+    //         check_message.innerText = "";
+    //     }
+    // })
+    // pwcheck.addEventListener('change', function(e) {
+    //     if (pw.value != pwcheck.value) {
+    //         check_message.innerText = "비밀번호가 맞지 않습니다!";
+    //     } else {
+    //         check_message.innerText = "";
+    //     }
+    // })
 </script>
 </html>

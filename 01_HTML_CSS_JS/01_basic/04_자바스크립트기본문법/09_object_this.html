@@ -6,8 +6,8 @@
     <title>Document</title>
     <script>
         let person = {
-            "name": '',
-            "eat": function (str) { return "유인성이 "+str+"을/를 먹습니다.";}
+            "name": '유인성',
+            "eat": function (str) { return `${this.name}이 ${str}을/를 먹습니다.`;}
         }
         console.log(person.eat("밥"));
         alert(person.eat("밥"));
