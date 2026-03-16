@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"> 
+        <h2>{{message}}</h2> <!-- Template -->
+        <label for="new-city">신규 도시</label>
+        <input id="new-city" v-model="newCity"> <!-- 모델의 newCity와 연결 -->
+        <button id="add-new-city" @click="addCity">추가</button> <!-- 모델의 addCity 메서드와 연결 -->
+        <table>
+            <tr>
+                <th>번호</th>
+                <th>지역</th>
+            </tr>
+            <tr v-for="(item, index) in cities">
+                <td>{{index+1}}</td>
+                <td>{{item.city}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script> <!-- Vue 라이브러리 -->
+    <script>
+       
+        let model = {
+            message: "Hello Vue3!", 
+            newCity: '', // 입력창과 연결
+            cities: [
+                {city: '서울'},
+                {city: '인천'},
+                {city: '대전'},
+                {city: '대구'},
+                {city: '광주'},
+                {city: '울산'},
+                {city: '부산'},
+            ]
+        };
+        let vm = Vue.createApp({ // 객체 (옵션 객체), ViewModel
+            name:"App",
+            data() {
+                return model;
+            },
+            methods: {
+                // 버튼을 클릭하면 실행될 함수
+                addCity() {
+                    if (this.newCity.trim() === "") return; // 빈칸 방지
+                    
+                    // 직접 배열에 push 하면 Vue가 알아서 화면에 리스트를 추가
+                    this.cities.push({ city: this.newCity });
+                    
+                    // 입력창 초기화 (v-model로 연결되어 있어 데이터만 비워도 input 창이 지워짐)
+                    this.newCity = ''; 
+                    this.message = '도시가 추가되었습니다!';
+                }
+            }
+        }).mount("#app"); // id='app'에 mount
+    
+    </script>
+</body>
+</html>

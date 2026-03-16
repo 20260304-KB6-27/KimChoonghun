@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="plus">더하기</button>
+    <button id="minus">빼기</button>
+    <button id="reset">리셋</button>
+    <script>
+        function createClickHandler() {
+
+            // 클로저를 사용했을때 장점
+            // 실수로 다른 코드에 의해 특정 변수(count)를 수정할 가능성이 사라짐
+            let count = 0;
+
+            return {
+                increase: function () {
+                    count++;
+                    console.log(count)
+                },
+                decrease: function () {
+                    count--;
+                    console.log(count)
+                },
+                reset: function () {
+                  count = 0;  
+                  console.log(count)
+                }
+            }
+        }
+
+        const button = document.getElementById('plus');
+        const handler = createClickHandler()
+        button.addEventListener('click', () =>{
+            handler.increase()
+        })
+        const minus = document.getElementById('minus');
+        minus.addEventListener('click', () =>{
+            handler.decrease()
+        })
+        const reset = document.getElementById('reset');
+        reset.addEventListener('click', () => {
+            handler.reset()
+        })
+    </script>
+</body>
+</html>
