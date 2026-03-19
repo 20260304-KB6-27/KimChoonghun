@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue 3 연습용 Options API</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- v-bind:속성명="데이터" -->
+      <input type="text" v-bind:value="message"/>
+      <!-- :속성명="데이터" -->
+      <img :src="imagePath">
+      <h1 v-bind="{ class: h1Class, style: h1Style }">{{h1Text}}</h1>
+    </div>
+
+    <script>
+        const { createApp, ref } = Vue;
+        /*
+          v-bind 디렉티브
+          - HTML 요소의 속성과 Vue의 데이터를 연결해주는 디렉티브
+        */
+        createApp({
+          setup() {
+            // 반응형 변수
+            const message = ref('v-bind 디렉티브');
+            const imagePath = ref('data:image/jpeg;base64,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');
+            const h1Style = ref({
+              color: 'blue',
+              fontweight: 'bold',
+              textDecoration: 'underline',
+              background: 'linear-gradient(-45deg, red, black)'
+            })
+            const h1Class = ref('text-class');
+            const h1Text = ref('v-bind 디렉티브');
+            return {
+              message,
+              imagePath,
+              h1Text,
+              h1Class,
+              h1Style
+            };
+          },
+        }).mount("#app");
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue 3 연습용 Options API</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      예금액 : <input type="text" v-model="amount"/>
+      <!--
+
+        v-if : 컴포넌트 조건부 표시
+        - DOM에서 요소를 제거와 생성을 반복함
+        v-else-if : 
+        
+      -->
+      <span v-if="amount >= 1000000">Gold</span>
+      <span v-else-if="amount >= 500000">Silver</span>
+      <span v-else-if="amount >= 350000">Bronze</span>
+      <span v-else="amount">Basic</span>
+    </div>
+
+    <script>
+      const { createApp, ref } = Vue;
+      
+      createApp({
+        setup() {
+          const amount = ref(0);
+          return {
+            amount,
+          }
+        }
+      }).mount("#app");
+    </script>
+  </body>
+</html>

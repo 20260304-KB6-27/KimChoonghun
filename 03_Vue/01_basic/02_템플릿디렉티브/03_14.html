@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue 3 연습용 Options API</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <!-- 
+          v-for
+          문법 : v-for = "(item, index) in 배열"
+
+          주의
+          :key 속성을 필수적으로 등록!!
+          인덱스 값은 변할 수 있으므로 key로 사용하지 않는 것이 좋다.
+          
+        -->
+        <table>
+          <tr>
+            <th>번호</th>
+            <th>이름</th>
+            <th>나이</th>
+            <th>거주지</th>
+          </tr>
+          <tr v-bind="{style: liStyle}" v-for="(val, index) in user" :key="val.name">
+            <td>{{index+1}}</td>
+            <td>{{val.name}}</td>
+            <td>{{val.age}}</td>
+            <td>{{val.city}}</td>
+          </tr>
+        </table>
+        
+      </ul>
+    </div>
+
+    <script>
+      const { createApp, ref } = Vue;
+
+      createApp({
+        setup() {
+          const user = ref(
+            [{
+              name: "영희",
+              age: 23,
+              city: "서울"
+            },
+            {
+              name: "철수",
+              age: 24,
+              city: "인천"
+            },
+            {
+              name: "민수",
+              age: 22,
+              city: "대구"
+            },
+            {
+              name: "가을",
+              age: 26,
+              city: '부산'
+            }]
+          )
+          const liStyle = ref(
+            {
+              listStyle: 'none'
+            }
+          )
+          return {
+            user
+          }
+        }
+      }).mount("#app");
+    </script>
+  </body>
+</html>
