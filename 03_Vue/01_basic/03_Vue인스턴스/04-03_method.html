@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Method 예제</title>
+    <style>
+      .highlight {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <p>가격: {{ price }}원</p>
+      <p>수량: {{ quantity }}개</p>
+      <p>
+        <strong>총합:</strong>
+        <span :class="{ highlight: isHighlighted }"
+          >{{ calculateTotal() }}원</span
+        >
+        <span :class="{ highlight: isHighlighted }"
+          >{{ calculateTotal() }}원</span
+        > <!-- class 안의 값이 변하므로 자식 요소인 span도 영향을 받아 메서드가 다시 연산된다. -->
+        <span :class="{ highlight: isHighlighted }"
+          >{{ calculateTotal() }}원</span
+        >
+      </p>
+      <button @click="quantity++">수량 증가</button>
+      <button @click="refreshTotal">색바꾸기!</button>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const { createApp, ref } = Vue;
+
+      createApp({
+        setup() {
+          const price = ref(1000);
+          const quantity = ref(1);
+          const isHighlighted = ref(false);
+
+          // 본문에 있는 만큼 또 계산한다.
+          const calculateTotal = () => {
+            console.log("총합 계산 실행!");
+            return price.value * quantity.value;
+          };
+
+          const refreshTotal = () => {
+            console.log("재랜더링!");
+            isHighlighted.value = !isHighlighted.value; 
+          };
+
+          return {
+            price,
+            quantity,
+            calculateTotal,
+            refreshTotal,
+            isHighlighted,
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

@@ -9,9 +9,11 @@
     <div id="app">
         1보다 큰 수: <input @change="sumNum()" type="text" v-model.number="num"/>
         <br />
+        1부터 입력한 값까지의 합: <span>{{sum}}</span><br /> <!-- num이 변하면 computed에서 자동 실행 -->
+        1부터 입력한 값까지의 합: <span>{{sum}}</span><br /> <!-- 캐싱되므로 값을 그대로 사용한다. -->
         1부터 입력한 값까지의 합: <span>{{sum}}</span><br />
         1부터 입력한 값까지의 합: <span>{{sum}}</span><br />
-        1부터 입력한 값까지의 합: <span>{{sum}}</span><br />
+        1부터 입력한 값까지의 합: <span>{{sum}}</span><br /> 
     </div>
     <script src="https://unpkg.com/vue"></script>
     <script>
@@ -22,17 +24,26 @@
             data() {
                 return {
                     num: 0,
-                    sum: 0,
                 };
             },
             
-            
+            // computed 속성
+            // 데이터 기반의 계산된 속성을 정의할 때 사용
+            // 의존하는 데이터 (반응형 데이터)가 변경될 때만 재계산 (캐싱)
+            // 템플릿에서 여러번 사용해도 계산은 한번만 수행
+            computed: {
+                sum() {
+                    let n = this.num; // 값이 변하면 자동실행
+                    console.log('num : ' + this.num)
+                    return n * (n+1) / 2
+                }
+            },
             // 핸들러, 메서드
             methods: {
-                sumNum() {
-                    console.log("## num:", this.num)
-                    this.sum = this.num * (this.num+1) / 2
-                }
+                // sumNum() {
+                //     console.log("## num:", this.num)
+                //     this.sum = this.num * (this.num+1) / 2
+                // }
             }
         }).mount("#app");
     </script>
