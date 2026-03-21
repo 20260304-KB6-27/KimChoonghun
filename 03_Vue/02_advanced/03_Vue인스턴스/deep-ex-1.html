@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type='radio']:checked {
+            accent-color: rgb(0 154 175);
+            /*
+            border: 1px solid white;
+            background-color: white;
+        */
+        }
+        
+        div#div-table {
+            margin-top: 10px;
+        }
+
+        div#div-table > table {
+            border-spacing: 0px;
+            width: 100%;
+        }
+
+        table th, td{
+            text-align: left;
+            padding: 5px;
+            border-bottom: 1px solid rgb(223, 222, 222)
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h2>사용자목록</h2>
+        <span>
+            정렬기준:
+            <input @click="sortTable('id')" type="radio" name="sortType" value="id" checked="checked">
+            id
+            <input @click="sortTable('name')" type="radio" name="sortType" value="name">
+            name
+            <input @click="sortTable('username')" type="radio" name="sortType" value="username">
+            username
+            <input @click="sortTable('phone')" type="radio" name="sortType" value="phone">
+            phone
+        </span>
+        <div id="div-table">
+            <table id="inform">
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>username</th>
+                    <th>phone</th>
+                    <th>company</th>
+                </tr>
+                <template v-for="(val, key, index) in data">
+                    <tr>
+                        <td>{{val.id}}</td>
+                        <td>{{val.name}}</td>
+                        <td>{{val.username}}</td>
+                        <td>{{val.phone}}</td>
+                        <td>{{val.company.name}}</td>
+                    </tr>
+                </template>
+            </table>
+        </div>
+    </div>
+</body>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+    const { createApp, ref, computed } = Vue;
+
+    createApp({
+        setup() {
+            const data = ref([
+                    {
+                        "id": 5,
+                        "name": "Chelsey Dietrich",
+                        "username": "Kamren",
+                        "email": null,
+                        "address": {
+                        "street": null,
+                        "suite": null,
+                        "city": null,
+                        "zipcode": null,
+                        "geo": null
+                        },
+                        "phone": "(254)954-1289",
+                        "website": null,
+                        "company": {
+                        "name": "Keebler LLC",
+                        "catchPhrase": null,
+                        "bs": null
+                        }
+                    },
+                    {
+                        "id": 10,
+                        "name": "Clementina DuBuque",
+                        "username": "Moriah.Stanton",
+                        "email": null,
+                        "address": {
+                        "street": null,
+                        "suite": null,
+                        "city": null,
+                        "zipcode": null,
+                        "geo": null
+                        },
+                        "phone": "024-648-3804",
+                        "website": null,
+                        "company": {
+                        "name": "Hoeger LLC",
+                        "catchPhrase": null,
+                        "bs": null
+                        }
+                    },
+                    {
+                        "id": 3,
+                        "name": "Clementine Bauch",
+                        "username": "Samantha",
+                        "email": null,
+                        "address": {
+                        "street": null,
+                        "suite": null,
+                        "city": null,
+                        "zipcode": null,
+                        "geo": null
+                        },
+                        "phone": "1-463-123-4447",
+                        "website": null,
+                        "company": {
+                        "name": "Romaguera-Jacobson",
+                        "catchPhrase": null,
+                        "bs": null
+                        }
+                    },
+                    {
+                        "id": 2,
+                        "name": "Ervin Howell",
+                        "username": "Antonette",
+                        "email": null,
+                        "address": {
+                        "street": null,
+                        "suite": null,
+                        "city": null,
+                        "zipcode": null,
+                        "geo": null
+                        },
+                        "phone": "010-692-6593 x09125",
+                        "website": null,
+                        "company": {
+                        "name": "Deckow-Crist",
+                        "catchPhrase": null,
+                        "bs": null
+                        }
+                    },
+                    {
+                        "id": 9,
+                        "name": "Glenna Reichert",
+                        "username": "Delphine",
+                        "email": null,
+                        "address": {
+                        "street": null,
+                        "suite": null,
+                        "city": null,
+                        "zipcode": null,
+                        "geo": null
+                        },
+                        "phone": "(775)976-6794 x41206",
+                        "website": null,
+                        "company": {
+                        "name": "Yost and Sons",
+                        "catchPhrase": null,
+                        "bs": null
+                        }
+                    },
+                    {
+                        "id": 7,
+                        "name": "Kurtis Weissnat",
+                        "username": "Elwyn.Skiles",
+                        "email": null,
+                        "address": {
+                        "street": null,
+                        "suite": null,
+                        "city": null,
+                        "zipcode": null,
+                        "geo": null
+                        },
+                        "phone": "210.067.6132",
+                        "website": null,
+                        "company": {
+                        "name": "Johns Group",
+                        "catchPhrase": null,
+                        "bs": null
+                        }
+                    },
+                    {
+                        "id": 1,
+                        "name": "Leanne Graham",
+                        "username": "Bret",
+                        "email": null,
+                        "address": {
+                        "street": null,
+                        "suite": null,
+                        "city": null,
+                        "zipcode": null,
+                        "geo": null
+                        },
+                        "phone": "1-770-736-8031 x56442",
+                        "website": null,
+                        "company": {
+                        "name": "Romaguera-Crona",
+                        "catchPhrase": null,
+                        "bs": null
+                        }
+                    },
+                    {
+                        "id": 6,
+                        "name": "Mrs. Dennis Schulist",
+                        "username": "Leopoldo_Corkery",
+                        "email": null,
+                        "address": {
+                        "street": null,
+                        "suite": null,
+                        "city": null,
+                        "zipcode": null,
+                        "geo": null
+                        },
+                        "phone": "1-477-935-8478 x6430",
+                        "website": null,
+                        "company": {
+                        "name": "Considine-Lockman",
+                        "catchPhrase": null,
+                        "bs": null
+                        }
+                    },
+                    {
+                        "id": 8,
+                        "name": "Nicholas Runolfsdottir V",
+                        "username": "Maxime_Nienow",
+                        "email": null,
+                        "address": {
+                        "street": null,
+                        "suite": null,
+                        "city": null,
+                        "zipcode": null,
+                        "geo": null
+                        },
+                        "phone": "586.493.6943 x140",
+                        "website": null,
+                        "company": {
+                        "name": "Abernathy Group",
+                        "catchPhrase": null,
+                        "bs": null
+                        }
+                    },
+                    {
+                        "id": 4,
+                        "name": "Patricia Lebsack",
+                        "username": "Karianne",
+                        "email": null,
+                        "address": {
+                        "street": null,
+                        "suite": null,
+                        "city": null,
+                        "zipcode": null,
+                        "geo": null
+                        },
+                        "phone": "493-170-9623 x156",
+                        "website": null,
+                        "company": {
+                        "name": "Robel-Corkery",
+                        "catchPhrase": null,
+                        "bs": null
+                        }
+                    }
+                ]
+            );
+
+            const sortType = ref('id');            
+            const sortTable = (v) => {
+                sortType.value = v;
+                console.log(v)
+                data.value.sort(function(a, b) { 
+                    return a[sortType.value] < b[sortType.value] ? -1 : a[sortType.value] > b[sortType.value] ? 1 : 0;
+                });
+            }
+            sortTable('id');
+
+            return {
+                data,
+                sortType,
+                sortTable
+            }
+        }
+    }).mount("#app");
+</script>
+</html>
