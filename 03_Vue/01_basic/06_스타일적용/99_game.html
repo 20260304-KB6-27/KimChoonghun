@@ -159,6 +159,7 @@
                     const nowTime = new Date();
                     if (nowTime >= startTime.value) {
                         if (check) {
+                            startTime.value = nowTime; //정확도를 위한 재초기화
                             toggleLevel();
                             check = false;
                         }
