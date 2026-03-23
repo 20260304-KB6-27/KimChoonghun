@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue 3 연습용 Options API</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+      .btnColor {
+        background-color: aqua;
+        color: black;
+      }
+      .btnAlign {
+        text-align: center;
+        width: 120px;
+      }
+      .btnBorder {
+        border: khaki dashed 1px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"> <!-- js 표현식 -->
+      <input type="checkbox" v-model="btnStyle.btnColor" />
+        색상<br/>
+      <input type="checkbox" v-model="btnStyle.btnAlign" />
+        정렬, 크기<br/>
+      <input type="checkbox" v-model="btnStyle.btnBorder" />
+        테두리<br/>
+      <button
+        :class="btnStyle"
+        >버튼</button> <!-- 객체 true/false 형태로 바인딩한다! -->
+    </div>
+    <script>
+      const { createApp, ref } = Vue;
+      createApp({
+        name: "App",
+        data() {
+          return {
+            btnStyle: {
+              btnColor: false,
+              btnAlign: false,
+              btnBorder: false,
+            }
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
