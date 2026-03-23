@@ -40,9 +40,10 @@
                 // {
                 //     deep: true, //객체 내부 속성까지 감시
                 // })
-                watch(() => ({...user}), ({...newV}, {...oldV}) => {
-                    console.log(`기존 사용자 ${oldV.name} -> 변경된 사용자 : ${newV}`);
-                })
+                watch(() => ({...user.value}), (newV, oldV) => {
+                    console.log(`기존 사용자 ${oldV.age}, ${oldV.email} -> 변경된 사용자 : ${newV.age}, ${newV.email}`);
+                },
+                {deep: true})
             
                 return {
                     user,

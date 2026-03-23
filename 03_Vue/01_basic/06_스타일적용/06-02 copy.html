@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue 3 연습용 Options API</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app"> <!-- js 표현식 -->
+      <div
+        @mouseover="parentOverEvent"
+        @mouseout="parentOutEvent">
+        <button
+          :style="style1" 
+          @mouseover="overEvent"
+          @mouseout="outEvent"
+          >테스트</button> <!-- hover 처리 mouseover + mouseout -->
+      </div>
+    </div>
+    <script>
+      const { createApp, ref } = Vue;
+      // 반응형 데이터
+      createApp({
+        setup() {
+          const style1 = ref({
+            backgroundColor: 'aqua',
+            color: 'black',
+          });
+
+          const parentOverEvent = () => {
+            console.log(`♪ parent Over Event`)
+          }
+
+          const parentOutEvent = () => {
+            console.log(`♪ parent Out Event`)
+          }
+
+          const overEvent = (e) => {
+            // 스타일 변경
+            console.log(`♪ Over Event`)
+            style1.value.backgroundColor = 'purple';
+            style1.value.color = 'yellow';
+
+            e.stopPropagation()
+          }
+
+          const outEvent = (e) => {
+            // 스타일 변경
+            console.log(`♪ Out Event`)
+            style1.value.backgroundColor = 'aqua';
+            style1.value.color = 'black';
+
+            e.stopPropagation()
+          }
+
+          return {
+            style1,
+            overEvent,
+            outEvent,
+            parentOutEvent,
+            parentOverEvent
+          }
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
