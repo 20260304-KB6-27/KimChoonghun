@@ -174,8 +174,13 @@
           }
 
           const removePost = (no) => {
-            let index = posts.value.findIndex((item) => no === item.no); 
+            if (confirm(
+              "정말로 삭제하시겠습니까?"
+            )) {
+              let index = posts.value.findIndex((item) => no === item.no); 
             posts.value.splice(index, 1); // .splice(ind, n) : ind에서부터 n개의 요소 제거
+            }
+            
           }
           
           sortList()
