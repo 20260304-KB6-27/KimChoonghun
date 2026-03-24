@@ -1,5 +1,5 @@
 <script setup>
-  import CheckboxItem from './components/CheckboxItem.vue'
+  import CheckboxItem from './components/CheckboxItem3.vue'
 </script>
 <script>
     export default {
@@ -23,10 +23,12 @@
     <h2>App Components</h2>
     <hr />
     <ul>
-      <CheckboxItem/>
-      <CheckboxItem/>
-      <CheckboxItem/>
-      <CheckboxItem/>
+      <CheckboxItem 
+        v-for="idol in idols"
+        :key="idol.id"
+        :name="idol.name"
+        :checked="idol.checked"
+      />
     </ul>
   </div>
 </template>

@@ -21,7 +21,6 @@
         emit('toggle', id);
     }
     const deleteTodo = (id) => {
-        console.log(id)
         emit('delete', id);
     }
     

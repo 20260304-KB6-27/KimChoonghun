@@ -5,14 +5,16 @@
     <ul>
       <CheckboxItem 
         v-for="idol in idols"
-        :idol="idol"
+        :key="idol.id"
+        :name="idol.name"
+        :checked="idol.checked"
       />
     </ul>
   </div>
 </template>
 <script setup>
   import { ref } from 'vue';
-  import CheckboxItem from './components/CheckboxItem2.vue'
+  import CheckboxItem from './components/CheckboxItem1.vue'
 
   const idols = ref([
       {id:1, name: 'BTS', checked: true},
