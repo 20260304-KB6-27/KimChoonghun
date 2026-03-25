@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3>당신이 경험한 프론트엔드 기술은?(첫번째 : Slot사용(X))</h3>
+        <h3>당신이 경험한 프론트엔드 기술은?(첫번째 : Slot 사용 X)</h3>
         <CheckBox1 v-for="item in items" :key="item.id"
             :id="item.id"
             :label="item.label"

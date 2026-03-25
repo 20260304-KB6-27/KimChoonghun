@@ -1,33 +1,29 @@
 <template>
     <div>
-        <h3>당신이 경험한 프론트엔드 기술은?(첫번째 : Named Slot 사용)</h3>
-        <CheckBox3 v-for="item in items" :key="item.id"
-            :id="item.id"
-            :label="item.label"
-            :checked="item.checked"
-            @check-changed="CheckBoxChanged">
-            <template v-slot:icon>
-                <i v-if="item.checked" class="far fa-grin-beam"></i>
+        <h3>당신이 경험한 프론트엔드 기술은?(네번째 : Scoped Slot 사용)</h3>
+        <CheckBoxList :items="items" @check-changed="CheckBoxChanged">
+            <template v-slot:icon="p1">
+                <i v-if="p1.checked" class="far fa-grin-beam"></i>
                 <i v-else class="far fa-frown"></i>
             </template>
-            <template v-slot:label>
+            <template v-slot:default="p2">
                 <span
-                    v-if="item.checked"
+                    v-if="p2.checked"
                     style="color: blue; text-decoration: underline;">
-                    <i>{{ item.label }}</i>
+                    <i>{{ p2.label }}</i>
                 </span>
-                <span v-else style="color: gray">{{ item.label }}</span>
+                <span v-else style="color: gray">{{ p2.label }}</span>
             </template>
-        </CheckBox3>
+        </CheckBoxList>
    </div>
 </template>
 
 <script>
-import CheckBox3 from './CheckBox3.vue';
+import CheckBoxList from './CheckBoxList.vue';
 
 export default {
-    name: "NamedSlotTest",
-    components: { CheckBox3 },
+    name: "ScopedSlotTest",
+    components: { CheckBoxList },
     data() {
         return {
             items: [

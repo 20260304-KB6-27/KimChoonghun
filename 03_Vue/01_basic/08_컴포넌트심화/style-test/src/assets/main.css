@@ -1,4 +1,24 @@
-@import './base.css';
+/*
+  전역 CSS
+  - 모든 컴포넌트에 적용
+  - main.js에서 import 해야함.
+  - 공통 레이아웃/기본 스타일 지정시 사용
+*/
+.box {
+  padding: 20px;
+  margin: 10px 0;
+  border-radius: 8px;
+}
+
+.global-style {
+  background-color: bisque;
+  border: 2px solid yellow;
+}
+
+.container {
+  font-family: "Gungsuh";
+}
+/* @import './base.css';
 
 #app {
   max-width: 1280px;
@@ -32,4 +52,4 @@ a,
     grid-template-columns: 1fr 1fr;
     padding: 0 2rem;
   }
-}
+} */
