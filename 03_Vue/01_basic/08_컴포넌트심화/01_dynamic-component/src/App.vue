@@ -1,22 +1,39 @@
 <script setup>
-  import { ref } from 'vue';
+  import { ref, computed } from 'vue';
   import CoralSeaTab from './components/CoralSeaTab.vue'
   import LeyteGulfTab from './components/LeyteGulfTab.vue'
   import MidwayTab from './components/MidwayTab.vue'
 
+
+  // :is에 컴포넌트 객체를 전달
   const tabs = ref(
     [
-      {id: CoralSeaTab, label:"산호해 해전"},
-      {id: MidwayTab, label:"미드웨이 해전"},
-      {id: LeyteGulfTab, label:"레이테만 해전"},
+      {id: 'CoralSeaTab', label:"산호해 해전"},
+      {id: 'MidwayTab', label:"미드웨이 해전"},
+      {id: 'LeyteGulfTab', label:"레이테만 해전"},
     ]
   );
 
-  const currentTab = ref(CoralSeaTab);
+  /*
+   동적 컴포넌트
+   - is 속성을 사용하여 런타임에 렌더링할 컴포넌트를 동적으로 바꿀 수 있다.
+   - Tab UI / 스텝 UI 에서 사용
+  */
+  // :is 에 컴포넌트 객체를 전달
+  const tabComponent = {
+    CoralSeaTab,
+    LeyteGulfTab,
+    MidwayTab
+  }
 
+  // 선택된 탭
+  const currentTabName = ref('CoralSeaTab')
+  const currentTab = computed(() => tabComponent[currentTabName.value]);
+
+  // 클리됐을때 currentTabName 변경
   const changeTab = (tab) => {
     console.log(tab)
-    currentTab.value = tab;
+    currentTabName.value = tab;
   }
 
   // return {
@@ -28,6 +45,8 @@
 
 <template>
   <div class="header">
+    <h1 class="headerText">동적 컴포넌트</h1>
+    <hr/>
     <h1 class="headerText">태평양 전쟁의 해전</h1>
     <nav>
       <ul class="nav nav-tabs nav-fill">

@@ -29,8 +29,22 @@
     isModal.value = true;
   }
 
+  const addSong = () => {
+    songs.value.push({
+      id: 5,
+      title: "새로운 노래",
+      done: true,
+    })
+  }
 
-  provide('icons', icons);
+  // Provide
+  // - provide('키', 데이터) : 정적 값
+  // - provide('키', computed()) : 반응형을 유지한 데이터
+  // provide('icons', icons);
+  provide('icons', {
+      checked: "far fa-check-circle",
+      unchecked: "far fa-circle"
+    });
   provide('doneCount', doneCount);
 </script>
 
@@ -38,6 +52,7 @@
   <div>
     <h2>최신 인기곡</h2>
     <SongList :songs="songs"/>
+    <!-- <button @click="addSong">새로운 곡 추가</button> -->
     <br/><br/>
     <button @click="changeModal">Teleport를 이용한 Modal 기능</button>
     <teleport to="#modal">

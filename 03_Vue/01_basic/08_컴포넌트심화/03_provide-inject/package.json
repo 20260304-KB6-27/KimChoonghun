@@ -1,5 +1,5 @@
 {
-  "name": "dynamic-component-test",
+  "name": "03_provide-inject",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -9,7 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "bootstrap": "^5.3.8",
     "vue": "^3.5.30"
   },
   "devDependencies": {

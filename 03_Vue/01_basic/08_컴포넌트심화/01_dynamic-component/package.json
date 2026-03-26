@@ -1,5 +1,5 @@
 {
-  "name": "provide-inject-teleport-test",
+  "name": "01_dynamic-component",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "bootstrap": "^5.3.8",
     "vue": "^3.5.30"
   },
   "devDependencies": {
