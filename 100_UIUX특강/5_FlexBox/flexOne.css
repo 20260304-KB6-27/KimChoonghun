@@ -1,0 +1,24 @@
+.container {
+    border: 1px solid black;
+    width : 600px;
+    height : 40px;
+    display: flex;
+    background: yellow;
+}
+
+.item {
+    border: 1px solid black;
+    flex: 1;
+    width: 400px;
+    align-content: center;
+}
+
+.item1 {
+    background: red;
+    flex: 4;
+}
+
+.item2 {
+    background: orange;
+    flex: 3;
+}
