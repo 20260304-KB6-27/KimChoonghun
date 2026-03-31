@@ -48,12 +48,27 @@ body {
 
 .btn-group {
   margin-top: 20px;
+  text-align: right;
 }
 
 button {
   padding: 10px;
-  margin-right: 5px;
+  margin-left: 5px;
   border: 1px solid #ccc;
   background-color: #eee;
   cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+#checkoutBtn {
+  background-color: rgb(116, 116, 251);
+  color: white;
+}
+
+.hidden {
+  display: none;
 }

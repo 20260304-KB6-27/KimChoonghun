@@ -1,0 +1,27 @@
+.box {
+  width: 80px;
+  height: 80px;
+  border-radius: 50px;
+  position: absolute;
+}
+
+.red {
+  background-color: red;
+  top: 20px;
+  left: 20px;
+}
+.green {
+  background-color: green;
+  top: 20px;
+  right: 20px;
+}
+.yellow {
+  background-color: yellow;
+  bottom: 20px;
+  left: 20px;
+}
+.blue {
+  background-color: blue;
+  bottom: 20px;
+  right: 20px;
+}

@@ -130,6 +130,31 @@
 
       const summaryBox = document.getElementById("summaryBox");
       const resultBox = document.getElementById("resultBox");
+      const filterList = document.getElementById("filterList");
+      const storeList = document.getElementById('storeList');
+      const optionList = document.getElementById('optionList');
+      const actionBox = document.querySelector('div.action-box');
+      console.log(actionBox);
+      function updateLists() {
+        filterList.classList.add('hidden');
+        storeList.classList.add('hidden');
+        optionList.classList.add('hidden');
+        actionBox.classList.add('hidden');
+        if (selectedCategory) {
+          filterList.classList.remove('hidden');
+        } 
+        if (selectedFilter) {
+          storeList.classList.remove('hidden');
+        }
+        if (selectedMenu) {
+          optionList.classList.remove('hidden');
+        }
+        if (selectedOption) {
+          actionBox.classList.remove('hidden');
+        }
+      }
+
+      updateLists();
 
       document.querySelectorAll("#categoryList .tag").forEach((tag) => {
         tag.addEventListener("click", () => {
@@ -139,6 +164,7 @@
           tag.classList.add("selected");
           selectedCategory = tag.dataset.value;
           updateSummary();
+          updateLists();
         });
       });
 
@@ -154,6 +180,7 @@
             filter.classList.add("selected");
             selectedFilter = filter.dataset.value;
             updateSummary();
+            updateLists();
           });
         });
 
@@ -171,6 +198,7 @@
             selectedOption = item.dataset.option;
           }
           updateSummary();
+          updateLists();
         });
       });
 
@@ -186,6 +214,7 @@
             option.classList.add("selected");
             selectedOption = option.dataset.value;
             updateSummary();
+            updateLists();
           });
         });
 
