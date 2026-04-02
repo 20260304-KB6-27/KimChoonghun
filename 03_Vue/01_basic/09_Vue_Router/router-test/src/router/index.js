@@ -35,6 +35,29 @@ const router = createRouter({
       beforeEnter: membersIdGuard,
     },
     {
+      /*
+        중첩 라우팅
+        - 부모 컴포넌트 안에 <RouterView>를 두고 children 배열로 자식 라우트 정의
+        - 자식 컴포넌트는 부모의 <RouterView> 위치에 랜더링
+      */
+      path: '/members-nested',
+      component: () => import("@/pages/nested/MembersLayout.vue"),
+      children: [
+        {
+          // 기본값 /members-nested
+          path: '',
+          name: 'members-nested',
+          component: () => import('@/pages/nested/MemberDefault.vue'),
+        },
+        {
+          // /members-nested/:id
+          path: ':id',
+          name: 'members-nested/detail',
+          component: () => import('@/pages/nested/MemberDetail.vue'),
+        },
+      ]
+    },
+    {
       path: '/about',
       name: 'about',
       // route level code-splitting
