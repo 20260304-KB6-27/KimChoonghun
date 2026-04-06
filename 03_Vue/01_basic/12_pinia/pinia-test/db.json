@@ -1,0 +1,46 @@
+{
+  "todos": [
+    {
+      "id": "1",
+      "todo": "자전거 타기",
+      "completed": true
+    },
+    {
+      "id": "2",
+      "todo": "딸과 공원 산책",
+      "completed": true
+    },
+    {
+      "id": "4",
+      "todo": "Vue 원고 집필",
+      "completed": true
+    },
+    {
+      "todo": "집 가기",
+      "completed": false,
+      "id": "-uzcs7yTEwA"
+    },
+    {
+      "todo": "코테 풀기",
+      "completed": false,
+      "id": "5OPzRLISSiA"
+    },
+    {
+      "todo": "밥 먹기",
+      "completed": false,
+      "id": "_yegGKufRLA"
+    },
+    {
+      "todo": "잠 자기",
+      "completed": true,
+      "id": "i9TdAlREshQ",
+      "done": false
+    },
+    {
+      "todo": "테스트 풀기",
+      "completed": false,
+      "id": "_pseqUtsuNw"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
