@@ -17,18 +17,20 @@
     },
     {
       "todo": "집 가기",
-      "completed": false,
+      "completed": true,
       "id": "-uzcs7yTEwA"
     },
     {
       "todo": "코테 풀기",
-      "completed": false,
-      "id": "5OPzRLISSiA"
+      "completed": true,
+      "id": "5OPzRLISSiA",
+      "done": false
     },
     {
       "todo": "밥 먹기",
-      "completed": false,
-      "id": "_yegGKufRLA"
+      "completed": true,
+      "id": "_yegGKufRLA",
+      "done": false
     },
     {
       "todo": "잠 자기",
@@ -38,8 +40,9 @@
     },
     {
       "todo": "테스트 풀기",
-      "completed": false,
-      "id": "_pseqUtsuNw"
+      "completed": true,
+      "id": "_pseqUtsuNw",
+      "done": false
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -26,7 +26,7 @@ const addTodoHandler = () => {
 
 <template>
   <div>
-    <h2>TodoList 테스트 (Composition API)</h2>
+    <h2>TodoList with axios and pinia</h2>
     <hr />
     할일 추가 :
     <input type="text" v-model="todo"/>
