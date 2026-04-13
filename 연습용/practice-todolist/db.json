@@ -1,24 +1,20 @@
 {
-    "todoList": [
+  "todoList": [
     {
-        "id": 1,
-        "title": "밥 먹기",
-        "finished": false
+      "title": "저녁 먹기",
+      "finished": false,
+      "id": "2"
     },
     {
-        "id": 2,
-        "title": "집 가기",
-        "finished": false
+      "title": "헬스장 가기",
+      "finished": false,
+      "id": "DLALCihr6Ks"
     },
     {
-        "id": 3,
-        "title": "모듈평가 보기",
-        "finished": false
-    },
-    {
-        "id": 4,
-        "title": "헬스장 가기",
-        "finished": false
+      "title": "교실 가기",
+      "finished": false,
+      "id": "tbcAI6imzMM"
     }
-]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
