@@ -1,4 +1,4 @@
-package ch09.sec02.exam01;
+package basic.ch09.sec02.exam01;
 
 public class A {
     //인스턴스 멤버 클래스
@@ -12,7 +12,7 @@ public class A {
         B b = new B();
     }
 
-    // 인스터스 메서드
+    // 인스턴스 메서드
     void method() {
         B b = new B();
     }
