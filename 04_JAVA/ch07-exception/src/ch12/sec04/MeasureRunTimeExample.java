@@ -1,0 +1,7 @@
+package ch12.sec04;
+
+public class MeasureRunTimeExample {
+    public static void main(String[] args) {
+
+    }
+}
